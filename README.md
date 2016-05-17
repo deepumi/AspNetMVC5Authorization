@@ -199,7 +199,7 @@ public class AuthorizeAttribute : System.Web.Mvc.AuthorizeAttribute
             return;
         }
 
-        var claimValue = ClaimValue.Split(',');
+        var claimValue = ClaimValue.Split(','); //Split custom roles and validate custom cliams, issuer and vlaue.
         if (!(principal.HasClaim(x => x.Type == ClaimType && claimValue.Any(v => v == x.Value) && x.Issuer == Constants.Issuer)))
         {
             filterContext.Result = new RedirectResult("~/Unauthorize.html");
