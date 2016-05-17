@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Secure";
+}
+
+@using System.Security.Claims;
+
+<h2>Secure</h2>
+<hr/>
+
+<br/>
+Claims<br/>
+@if (HttpContext.Current.User.Identity.IsAuthenticated)
+{
+    var principal = HttpContext.Current.User as ClaimsPrincipal;
+    if (principal != null && principal.Claims.Any())
+    {
+        <table class="table">
+            @foreach (var claim in principal.Claims)
+            {
+                <tr>
+                    <td><b>@claim.Type</b></td>
+                    <td>@claim.Value</td>
+                </tr>
+            }
+        </table>
+    }
+}

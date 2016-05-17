@@ -45,3 +45,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+/AspNetMVC5Authorization/obj/Debug
+/AspNetMVC5Authorization/bin
+/packages
